@@ -8,11 +8,9 @@ private:
         int mid = s + (e - s) / 2;
         int i = s;
         int j = mid + 1;
-
         vector<int> temp(e - s + 1);
         int k = 0;
         int count = 0;
-
         while(i <= mid && j <= e) {
             if(arr[i] > arr[j]) {
                 count += (mid - i + 1);
@@ -22,32 +20,25 @@ private:
                 temp[k++] = arr[i++];
             }
         }
-
         while(i <= mid) {
             temp[k++] = arr[i++];
         }
-
         while(j <= e) {
             temp[k++] = arr[j++];
         }
-
         for(int x = 0; x < k; x++) {
             arr[s + x] = temp[x];
         }
-
         return count;
     }
 
     int mergeSort(vector<int>& arr, int s, int e) {
         if(s >= e)
             return 0;
-
         int mid = s + (e - s) / 2;
-
         int left = mergeSort(arr, s, mid);
         int right = mergeSort(arr, mid + 1, e);
         int mergeCount = merge(arr, s, e);
-
         return left + right + mergeCount;
     }
 
