@@ -54,7 +54,7 @@ void reverse(Node* &head) {
 }
 */
 
-// Recursive Approach 3
+// Recursive Approach 2
 
 Node* reverse1(Node* &head) {
     if(head == NULL || head->next == NULL)
