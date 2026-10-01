@@ -1,4 +1,4 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node {
@@ -20,11 +20,12 @@ void insertAtTail(Node*& head, Node*& tail, int data) {
         tail = newNode;
         return;
     }
+
     tail->next = newNode;
     tail = newNode;
 }
 
-bool isCircular(Node* head) {
+bool isCircular(Node* head){
     if (head == NULL)
         return true;
     Node* slow = head;
@@ -33,26 +34,28 @@ bool isCircular(Node* head) {
         fast = fast->next;
         if (fast == NULL)
             return false;
-        fast = fast->next;
-        if (fast == NULL)
-            return false;
-        slow = slow->next;
-    } while (slow != fast);
-    return fast == head;
+        else {
+            fast = fast->next;
+            slow = slow->next;
+        }
+    } while (slow != fast && fast != NULL);
+    if(slow == fast && fast == head)
+        return true;
+    return false;
 }
 
 void solve(int arr[], int n, int cycleTo) {
     Node* head = NULL;
     Node* tail = NULL;
 
-    for (int i = 0; i < n; i++) {
+    for(int i = 0; i < n; i++) {
         insertAtTail(head, tail, arr[i]);
     }
 
-    if (cycleTo != -1) {
+    if(cycleTo != -1) {
         Node* temp = head;
 
-        for (int i = 0; i < cycleTo; i++) {
+        for(int i = 0; i < cycleTo; i++) {
             temp = temp->next;
         }
 
@@ -63,7 +66,6 @@ void solve(int arr[], int n, int cycleTo) {
 }
 
 int main() {
-
     int arr1[] = {1, 2, 3, 4, 1};
     solve(arr1, 5, 0);
 
