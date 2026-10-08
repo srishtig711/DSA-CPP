@@ -44,6 +44,25 @@ bool isCircular(Node* head){
     return false;
 }
 
+/* Approach 2
+bool isCircular(Node* head){
+    if(head == nullptr)
+        return true;
+    unordered_set<Node*> visited;
+    Node* temp = head;
+    while(temp!= nullptr) {
+        if(visited.find(temp) != visited.end()) {
+            if(temp == head)
+                return true;
+            return false;
+        }
+        visited.insert(temp);
+        temp = temp->next;
+    }
+    return false;
+}
+*/
+
 void solve(int arr[], int n, int cycleTo) {
     Node* head = NULL;
     Node* tail = NULL;
