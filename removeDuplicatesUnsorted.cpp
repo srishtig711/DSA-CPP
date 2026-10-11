@@ -50,29 +50,6 @@ Node* removeDuplicates(Node* head) {
 }
 */
 
-/*
-Node* removeDuplicates(Node* head) {
-    if(head == nullptr || head->next == nullptr)
-        return head;
-    unordered_set<int> visited;
-    Node* temp = head;
-    Node* prev = nullptr;
-    while(temp != nullptr) {
-        Node* next = temp->next;
-        if(visited.find(temp->data) != visited.end()) {
-            prev->next = next;
-            delete temp;
-        }
-        else {
-            visited.insert(temp->data);
-            prev = temp;
-        }
-        temp = next;
-    }
-    return head;
-}
-*/
-
 /*Approach 2
 Node* findMiddle(Node* head) {
     if (head == nullptr || head->next == nullptr)
