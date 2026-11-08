@@ -18,7 +18,7 @@ public:
 
     // TODO: Push into Stack 1
     void push1(int x) {
-        if(top2 - top1 > 0) {
+        if(top2 - top1 > 1) {
             top1++;
             arr[top1] = x;
         }
@@ -29,7 +29,7 @@ public:
 
     // TODO: Push into Stack 2
     void push2(int x) {
-        if(top2 - top1 > 0) {
+        if(top2 - top1 > 1) {
             top2--;
             arr[top2] = x;
         }
