@@ -6,12 +6,14 @@ using namespace std;
 vector<int> nextSmallerElement(vector<int>& arr) {
     int n = arr.size();
     stack<int> s;
-    s.push(-1);
     vector<int> ans(n);
+    s.push(-1);
     for(int i = n-1; i >= 0; i--) {
-        while(s.top() && s.top() >= arr[i]) {
+        while(!s.empty() && s.top() >= arr[i]) {
             s.pop();
         }
+        if(s.empty())
+            s.push(-1);
         ans[i] = s.top();
         s.push(arr[i]);
     }
